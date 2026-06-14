@@ -4,7 +4,7 @@ package org.example.model.connector;
 import org.example.model.Signal;
 import org.example.observer.SignalChangeListener;
 
-import java.awt.Point;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -14,7 +14,7 @@ public class Connector {
     private final String id;
     private final ConnectorType type;
     private Signal signal;
-    private Point absolutePosition; // world coords
+    private Point absolutePosition;
     private final List<SignalChangeListener> listeners = new ArrayList<>();
 
     public Connector(ConnectorType type) {
@@ -24,12 +24,25 @@ public class Connector {
         this.absolutePosition = new Point(0, 0);
     }
 
-    public String getId() { return id; }
-    public ConnectorType getType() { return type; }
-    public Point getAbsolutePosition() { return absolutePosition; }
-    public void setAbsolutePosition(Point p) { this.absolutePosition = new Point(p); }
+    public String getId() {
+        return id;
+    }
 
-    public Signal getSignal() { return signal; }
+    public ConnectorType getType() {
+        return type;
+    }
+
+    public Point getAbsolutePosition() {
+        return absolutePosition;
+    }
+
+    public void setAbsolutePosition(Point p) {
+        this.absolutePosition = new Point(p);
+    }
+
+    public Signal getSignal() {
+        return signal;
+    }
 
     public void setSignal(Signal newSignal) {
         if (this.signal != newSignal) {
@@ -52,8 +65,13 @@ public class Connector {
         }
     }
 
-    public boolean isInput() { return type == ConnectorType.INPUT; }
-    public boolean isOutput() { return type == ConnectorType.OUTPUT; }
+    public boolean isInput() {
+        return type == ConnectorType.INPUT;
+    }
+
+    public boolean isOutput() {
+        return type == ConnectorType.OUTPUT;
+    }
 
     @Override
     public String toString() {
